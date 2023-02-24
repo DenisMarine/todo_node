@@ -6,7 +6,7 @@ import {
   displayNameValidator,
   emailValidator,
   passwordValidator,
-} from "@/api/validators.js"
+} from "@/validators.js"
 
 const handler = mw({
   POST: [

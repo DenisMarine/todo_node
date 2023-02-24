@@ -5,6 +5,11 @@ import UserModel from "@/api/db/models/UserModel.js"
 class PostModel extends BaseModel {
   static tableName = "posts"
 
+  static modifiers = {
+    paginate: (query, limit, page) =>
+      query.limit(limit).offset((page - 1) * limit),
+  }
+
   static relationMappings() {
     return {
       author: {

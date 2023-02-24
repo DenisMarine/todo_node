@@ -3,7 +3,7 @@ import UserModel from "@/api/db/models/UserModel.js"
 import slowDown from "@/api/middlewares/slowDown.js"
 import validate from "@/api/middlewares/validate.js"
 import mw from "@/api/mw.js"
-import { emailValidator, passwordValidator } from "@/api/validators.js"
+import { emailValidator, stringValidator } from "@/validators.js"
 import jsonwebtoken from "jsonwebtoken"
 
 const handler = mw({
@@ -12,7 +12,7 @@ const handler = mw({
     validate({
       body: {
         email: emailValidator.required(),
-        password: passwordValidator.required(),
+        password: stringValidator.required(),
       },
     }),
     async ({
